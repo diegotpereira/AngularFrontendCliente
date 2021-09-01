@@ -1,1 +1,97 @@
-<p>lista-clientes works!</p>
+<div *ngIf="clientes.length">
+    <h3>Lista de Clientes</h3>
+    <br>
+    <table class="table table-hover table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes">
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="definirDetalhesCliente(cliente)">
+                        {{cliente.id}}
+                    </button>
+                </td>
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.endereco</td>
+                <td>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" (click)=prepararDeletarcliente>
+                        &times;
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="delete-modal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!--- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Deletar!</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    &times;
+                </button>
+            </div>
+            <!-- Modal Body-->
+            <div class="modal-body">
+                <div *ngIf="deleteCliente">
+                    <p [hidden]="retornarMensagem">
+
+                        Você quer deletar um cliente com id = {{deleteCliente.id}}
+                    </p>
+                    <p [hidden]="!retornarMensagem">
+                        {{retornarMensagem}}
+                    </p>
+                </div>
+            </div>
+
+            <!-- Modal Footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button [hidden]="retornarMensagem" type="button" class="btn btn-danger" (click)="deletarCliente()">Deletar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="mostrarCliente">
+    <h3>Atualizar Cliente</h3>
+    <form (ngSubmit)="atualizarCliente()">
+        <!--Campo id Cliente-->
+        <div class="form-group">
+            <label for="id">Id: </label>
+            <input type="number" class="form-control" id="id" required[(ngModel)]="mostrarCliente.id" name="id" disabled>
+        </div>
+        <!--Campo nome Cliente-->
+        <div class="form-group">
+            <label for="nome">Nome: </label>
+            <input type="text" class="form-control" id="nome" required[(ngModel)]="mostrarCliente.nome" name="nome" disabled>
+        </div>
+        <!--Campo sobrenome Cliente-->
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome: </label>
+            <input type="text" class="form-control" id="sobrenome" required[(ngModel)]="mostrarCliente.sobrenome" name="sobrenome" disabled>
+        </div>
+        <!--Campo id Cliente-->
+        <div class="form-group">
+            <label for="endereco">Endereco: </label>
+            <input type="text" class="form-control" id="endereco" required[(ngModel)]="mostrarCliente.endereco" name="endereco" disabled>
+        </div>
+        <!--Campo id Cliente-->
+        <div class="form-group">
+            <label for="idade">Idade: </label>
+            <input type="number" class="form-control" id="idade" required[(ngModel)]="mostrarCliente.idade" name="idade" disabled>
+        </div>
+        <button type="submit" class="btn btn-success">Atualizar</button>
+    </form>
+</div>
+<app-message></app-message>

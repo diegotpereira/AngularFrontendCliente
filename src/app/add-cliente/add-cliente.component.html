@@ -1,1 +1,27 @@
-<p>add-cliente works!</p>
+<h2>Novo Cliente</h2>
+<div>
+    <form (ngSubmit)="onSubmit()">
+        <!-- Campo Nome-->
+        <div class="form-group">
+            <label for="nome">Nome: </label>
+            <input type="text" class="form-control" placeholder="Digite um nome" id="nome" required[(ngModel)]="cliente.nome" name="nome">
+        </div>
+        <!-- Campo Nome-->
+        <div class="form-group">
+            <label for="sobrenome">Sobrenome: </label>
+            <input type="text" class="form-control" placeholder="Digite um sobrenome" id="sobrenome" required[(ngModel)]="cliente.sobrenome" name="sobrenome">
+        </div>
+        <!-- Campo Nome-->
+        <div class="form-group">
+            <label for="endereco">Endereço: </label>
+            <input type="text" class="form-control" placeholder="Digite um endereco" id="endereco" required[(ngModel)]="cliente.endereco" name="endereco">
+        </div>
+        <!-- Campo Nome-->
+        <div class="form-group">
+            <label for="idade">Idade: </label>
+            <input type="text" class="form-control" placeholder="Digite uma idade" id="idade" required[(ngModel)]="cliente.idade" name="idade">
+        </div>
+        <button type="submit" class="btn btn-success">Enviar</button>
+    </form>
+</div>
+<app-message></app-message>
