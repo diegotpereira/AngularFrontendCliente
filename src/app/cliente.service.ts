@@ -28,12 +28,12 @@ export class ClienteService {
    }
 
    atualizarCliente(cliente: Cliente): Observable<Message> {
-     return this.http.put<Message> (`${this.baseUrl}` + `/encontrarUm/` + cliente.id, cliente)
+     return this.http.put<Message> (`${this.baseUrl}` + `/atualizarPorId/` + cliente.id, cliente)
      .pipe(retry(3), catchError(this.handleError));
    }
 
    deletarCliente(id: number): Observable<Message> {
-     return this.http.delete<Message>(`${this.baseUrl}` + `/deletarPorID` + id)
+     return this.http.delete<Message>(`${this.baseUrl}` + `/deletarPorID/` + id)
      .pipe(retry(3), catchError(this.handleError));
    }
 
