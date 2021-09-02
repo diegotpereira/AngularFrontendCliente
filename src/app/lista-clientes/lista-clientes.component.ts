@@ -14,7 +14,7 @@ export class ListaClientesComponent implements OnInit {
   clientes: Array<Cliente> = [];
   mostrarCliente: Cliente;
   foiSelecionado: boolean = false;
-  deleteCliente: Cliente;
+  excluirCliente: Cliente;
   retornarMensagem: string;
 
   constructor(
@@ -35,7 +35,7 @@ export class ListaClientesComponent implements OnInit {
   // Definir o cliente excluído e redefinir a mensagem retornada = undefined
   prepararDeletarcliente(deletarCliente: Cliente) {
     // atribuir excluir-cliente
-    this.deleteCliente = deletarCliente;
+    this.excluirCliente = deletarCliente;
     // redefinir mensagem devolvida
     this.retornarMensagem = undefined;
   }
@@ -43,13 +43,13 @@ export class ListaClientesComponent implements OnInit {
   // Excluir um cliente por ID
   deletarCliente() {
     console.log("---Acesse deletarCliente() function");
-    this.clienteService.deletarCliente(this.deleteCliente.id)
+    this.clienteService.deletarCliente(this.excluirCliente.id)
     .subscribe((message: Message) => {
       console.log(message);
       
     // remover um cliente excluído da lista de clientes em exibição
     this.clientes = this.clientes.filter(cliente => {
-      return cliente.id != this.deleteCliente.id;
+      return cliente.id != this.excluirCliente.id;
     })
 
     // definir uma mensagem de exibição no modal de exclusão

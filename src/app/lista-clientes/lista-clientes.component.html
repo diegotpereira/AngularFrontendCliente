@@ -18,9 +18,9 @@
                     </button>
                 </td>
                 <td>{{cliente.nome}}</td>
-                <td>{{cliente.endereco</td>
+                <td>{{cliente.endereco}}</td>
                 <td>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" (click)=prepararDeletarcliente>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal" (click)=prepararDeletarcliente(cliente)>
                         &times;
                     </button>
                 </td>
@@ -43,10 +43,10 @@
             </div>
             <!-- Modal Body-->
             <div class="modal-body">
-                <div *ngIf="deleteCliente">
+                <div *ngIf="excluirCliente">
                     <p [hidden]="retornarMensagem">
 
-                        Você quer deletar um cliente com id = {{deleteCliente.id}}
+                        Você quer deletar um cliente com id = {{excluirCliente.id}}
                     </p>
                     <p [hidden]="!retornarMensagem">
                         {{retornarMensagem}}
@@ -69,41 +69,41 @@
         <!--Campo id Cliente-->
         <div class="form-group">
             <label for="id">Id: </label>
-            <input type="number" class="form-control" id="id" required[(ngModel)]="mostrarCliente.id" name="id" disabled>
+            <input type="number" class="form-control" id="id" required [(ngModel)]="mostrarCliente.id" name="id" disabled>
         </div>
         <!--Campo nome Cliente-->
         <div class="form-group">
             <label for="nome">Nome: </label>
-            <input type="text" class="form-control" id="nome" required[(ngModel)]="mostrarCliente.nome" name="nome" disabled>
+            <input type="text" class="form-control" id="nome" required [(ngModel)]="mostrarCliente.nome" name="nome">
         </div>
         <!--Campo sobrenome Cliente-->
         <div class="form-group">
             <label for="sobrenome">Sobrenome: </label>
-            <input type="text" class="form-control" id="sobrenome" required[(ngModel)]="mostrarCliente.sobrenome" name="sobrenome" disabled>
+            <input type="text" class="form-control" id="sobrenome" required [(ngModel)]="mostrarCliente.sobrenome" name="sobrenome">
         </div>
         <!--Campo id Cliente-->
         <div class="form-group">
             <label for="endereco">Endereco: </label>
-            <input type="text" class="form-control" id="endereco" required[(ngModel)]="mostrarCliente.endereco" name="endereco" disabled>
+            <input type="text" class="form-control" id="endereco" required [(ngModel)]="mostrarCliente.endereco" name="endereco">
         </div>
         <!--Campo id Cliente-->
         <div class="form-group">
             <label for="idade">Idade: </label>
-            <input type="number" class="form-control" id="idade" required[(ngModel)]="mostrarCliente.idade" name="idade" disabled>
+            <input type="number" class="form-control" id="idade" required [(ngModel)]="mostrarCliente.idade" name="idade">
         </div>
         <button type="submit" class="btn btn-success">Atualizar</button>
     </form>
 </div>
 <app-message></app-message>
 <script>
-  let pathname = window.location.pathname;
+    let pathname = window.location.pathname;
 
-  if(pathname == "") {
-    $(".nav .nav-item a:first").addClass("active");
-    $(".nav .nav-item a:last").removeClass("active");
-  }else if(pathname == "/clientes/"){
-    $(".nav .nav-item a:last").addClass("active");
-    $(".nav .nav-item a:first").removeClass("active");
-  }
-  alert("ok");
+    if (pathname == "") {
+        $(".nav .nav-item a:first").addClass("active");
+        $(".nav .nav-item a:last").removeClass("active");
+    } else if (pathname == "/clientes/") {
+        $(".nav .nav-item a:last").addClass("active");
+        $(".nav .nav-item a:first").removeClass("active");
+    }
+    alert("ok");
 </script>
