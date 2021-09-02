@@ -11,7 +11,7 @@ export class MessageService {
     this.messages.push(message);
   }
 
-  clear() {
+  limpar() {
     this.messages = [];
   }
   constructor() { }

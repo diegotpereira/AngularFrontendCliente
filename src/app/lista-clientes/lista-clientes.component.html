@@ -95,3 +95,15 @@
     </form>
 </div>
 <app-message></app-message>
+<script>
+  let pathname = window.location.pathname;
+
+  if(pathname == "") {
+    $(".nav .nav-item a:first").addClass("active");
+    $(".nav .nav-item a:last").removeClass("active");
+  }else if(pathname == "/clientes/"){
+    $(".nav .nav-item a:last").addClass("active");
+    $(".nav .nav-item a:first").removeClass("active");
+  }
+  alert("ok");
+</script>

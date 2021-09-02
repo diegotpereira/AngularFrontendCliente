@@ -3,8 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+
 import { AddClienteComponent } from './add-cliente/add-cliente.component';
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+
+import { HttpClientModule } from '@angular/common/http';
 import { MessageComponent } from './message/message.component';
 
 @NgModule({
@@ -16,7 +20,9 @@ import { MessageComponent } from './message/message.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
